@@ -1,9 +1,10 @@
 "use server";
 
 import { Champion, ChampionDetail } from "@/types/Champion";
+import { Item } from "@/types/Item";
 
 // 최신 버전 가져오는 함수
-const getVersion = async () => {
+const getVersion = async (): Promise<string> => {
   try {
     const versionResponse = await fetch(
       "https://ddragon.leagueoflegends.com/api/versions.json"
@@ -22,7 +23,7 @@ const getVersion = async () => {
 };
 
 // 챔피언 목록 가져오는 함수
-export const getChampionList = async () => {
+export const getChampionList = async (): Promise<Champion[]> => {
   try {
     // 최신 버전 가져오기
     const version = await getVersion();
@@ -64,6 +65,7 @@ export const getChampionDetail = async (
     // 최신 버전 가져오기
     const version = await getVersion();
 
+    // 버전에 맞춰 특정 챔피언 디테일 데이터 가져오기
     const championDetailResponse = await fetch(
       `https://ddragon.leagueoflegends.com/cdn/${version}/data/ko_KR/champion/${id}.json`
     );
@@ -75,6 +77,7 @@ export const getChampionDetail = async (
     const { data }: { data: Record<string, any> } =
       await championDetailResponse.json();
 
+    // 특정 챔피언 데이터
     const champion = data[id];
 
     if (!champion) {
@@ -100,6 +103,40 @@ export const getChampionDetail = async (
     return championDetail;
   } catch (error) {
     console.error("Error fetching champion detail:", error);
+    throw error;
+  }
+};
+
+// 아이템 목록 가져오기
+export const getItemList = async (): Promise<Item[]> => {
+  try {
+    // 최신 버전 가져오기
+    const version = await getVersion();
+
+    // 버전에 맞춰 아이템 불러오기
+    const itemListResponse = await fetch(
+      `https://ddragon.leagueoflegends.com/cdn/${version}/data/ko_KR/item.json`
+    );
+
+    if (!itemListResponse.ok) {
+      throw new Error("Failed to fetch item list");
+    }
+
+    const { data }: { data: Record<string, any> } =
+      await itemListResponse.json();
+
+    const itemList: Item[] = Object.entries(data).map(([id, item]) => ({
+      id: id,
+      name: item.name,
+      description: item.description,
+      image: {
+        full: item.image.full,
+      },
+    }));
+
+    return itemList;
+  } catch (error) {
+    console.error("Error fetching item list:", error);
     throw error;
   }
 };
