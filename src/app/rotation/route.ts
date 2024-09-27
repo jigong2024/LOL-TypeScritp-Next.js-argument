@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 
 export async function GET() {
   const apiKey = process.env.RIOT_API_KEY;
-  console.log("api=======>", apiKey);
+  //   console.log("api=======>", apiKey);
 
   if (!apiKey) {
     // NextResponse는 Next.js에서 제공하는 API 응답 생성 유틸리티, 서버사이드에서 클라이언트로 응답을 보낼 때 사용
