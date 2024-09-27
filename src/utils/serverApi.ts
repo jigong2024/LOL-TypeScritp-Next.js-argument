@@ -4,7 +4,7 @@ import { Champion, ChampionDetail } from "@/types/Champion";
 import { Item } from "@/types/Item";
 
 // 최신 버전 가져오는 함수
-const getVersion = async (): Promise<string> => {
+export const getVersion = async (): Promise<string> => {
   try {
     const versionResponse = await fetch(
       "https://ddragon.leagueoflegends.com/api/versions.json"
