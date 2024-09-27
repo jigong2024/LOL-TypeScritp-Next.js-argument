@@ -128,7 +128,7 @@ export const getItemList = async (): Promise<Item[]> => {
     const itemList: Item[] = Object.entries(data).map(([id, item]) => ({
       id: id,
       name: item.name,
-      description: item.description,
+      plaintext: item.plaintext,
       image: {
         full: item.image.full,
       },
