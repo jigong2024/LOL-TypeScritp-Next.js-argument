@@ -6,9 +6,10 @@ import Link from "next/link";
 
 export const revalidate = 86400; // 1일(86400초) 후 재검증(ISR)
 
+// 정적 메타 데이터
 export const metadata: Metadata = {
   title: "챔피언 목록",
-  description: "챔피언 목록을 제공합니다.",
+  description: "리그 오브 레전드 챔피언 목록을 제공합니다.",
 };
 
 async function ChampionPage() {

@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import React from "react";
 
+// 정적 메타 데이터
 export const metadata: Metadata = {
   title: "리그 오브 레전드 정보 앱",
   description: "Riot Games API를 활용하여 챔피언과 아이템 정보를 제공합니다.",
