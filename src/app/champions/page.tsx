@@ -1,9 +1,15 @@
 import { Champion } from "@/types/Champion";
 import { getChampionList, getVersion } from "@/utils/serverApi";
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
 export const revalidate = 86400; // 1일(86400초) 후 재검증(ISR)
+
+export const metadata: Metadata = {
+  title: "챔피언 목록",
+  description: "챔피언 목록을 제공합니다.",
+};
 
 async function ChampionPage() {
   // 서버 액션 함수 호출해서 챔피언 목록 가져오기
