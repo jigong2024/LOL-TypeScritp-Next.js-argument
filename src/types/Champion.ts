@@ -1,6 +1,7 @@
 // Champion 타입 (목록에서 사용할 기본 정보)
 export interface Champion {
   id: string;
+  key: string;
   name: string;
   title: string;
   image: {

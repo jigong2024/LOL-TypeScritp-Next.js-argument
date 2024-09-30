@@ -43,6 +43,7 @@ export const getChampionList = async (): Promise<Champion[]> => {
     // 필요한 챔피언 데이터만 추출
     const championList: Champion[] = Object.values(data).map((champion) => ({
       id: champion.id,
+      key: champion.key,
       name: champion.name,
       title: champion.title,
       image: {
@@ -86,6 +87,7 @@ export const getChampionDetail = async (
 
     const championDetail: ChampionDetail = {
       id: champion.id,
+      key: champion.key,
       name: champion.name,
       title: champion.title,
       image: {
