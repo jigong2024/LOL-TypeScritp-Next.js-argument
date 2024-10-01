@@ -1,3 +1,5 @@
+"use client";
+
 import { Champion } from "@/types/Champion";
 import Image from "next/image";
 import Link from "next/link";
@@ -17,7 +19,7 @@ export const ChampionCard = ({
           champions.map((champion) => {
             return (
               <Link href={`/champions/${champion.id}`} key={champion.id}>
-                <div className="border border-black rounded-md p-4">
+                <div className="border border-black rounded-md p-4 bg-gray-200">
                   <Image
                     src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/champion/${champion.image.full}`}
                     alt={champion.name}
@@ -25,7 +27,9 @@ export const ChampionCard = ({
                     height={120}
                     className="mx-auto mb-3"
                   />
-                  <p>{champion.name}</p>
+                  <p className="font-bold text-[20px] text-red-500">
+                    {champion.name}
+                  </p>
                   <p>{champion.title}</p>
                 </div>
               </Link>

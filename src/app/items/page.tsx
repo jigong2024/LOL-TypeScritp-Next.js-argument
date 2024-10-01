@@ -18,7 +18,10 @@ async function ItemPage() {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {items.map((item) => {
           return (
-            <div key={item.id} className="border border-black rounded-md p-4">
+            <div
+              key={item.id}
+              className="border border-black rounded-md p-4 bg-gray-200"
+            >
               <Image
                 src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/item/${item.image.full}`}
                 alt={item.name}
@@ -26,7 +29,7 @@ async function ItemPage() {
                 height={120}
                 className="mx-auto mb-3"
               />
-              <p>{item.name}</p>
+              <p className="font-bold text-[20px] text-blue-500">{item.name}</p>
               <p>{item.plaintext}</p>
             </div>
           );
