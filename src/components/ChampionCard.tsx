@@ -30,7 +30,7 @@ export const ChampionCard = ({
                   <p className="font-bold text-[20px] text-red-500">
                     {champion.name}
                   </p>
-                  <p>{champion.title}</p>
+                  <p className="dark:text-black">{champion.title}</p>
                 </div>
               </Link>
             );

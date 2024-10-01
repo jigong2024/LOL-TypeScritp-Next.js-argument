@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-// import "../styles/globals.css";
 import Link from "next/link";
+import DarkMode from "../components/DarkMode";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -41,6 +41,7 @@ export default function RootLayout({
           >
             챔피언 로테이션
           </Link>
+          <DarkMode />
         </header>
         <main>{children}</main>
       </body>

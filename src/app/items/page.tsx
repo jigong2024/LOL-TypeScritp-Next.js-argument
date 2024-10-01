@@ -30,7 +30,7 @@ async function ItemPage() {
                 className="mx-auto mb-3"
               />
               <p className="font-bold text-[20px] text-blue-500">{item.name}</p>
-              <p>{item.plaintext}</p>
+              <p className="dark:text-black">{item.plaintext}</p>
             </div>
           );
         })}
