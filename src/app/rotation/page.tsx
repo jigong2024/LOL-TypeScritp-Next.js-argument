@@ -52,7 +52,6 @@ function RotationPage() {
   // }, [freeChampions, version]);
 
   if (error) return <div>error: {error}</div>;
-
   // 데이터가 모두 로드되었는지 확인
   if (freeChampions.length === 0 || version === null) {
     return <div>데이터 로딩 중...</div>;
