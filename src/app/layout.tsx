@@ -16,11 +16,31 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <header className="flex flex-row justify-evenly items-center">
-          <Link href="/">홈</Link>
-          <Link href="/champions">챔피언 목록</Link>
-          <Link href="/items">아이템 목록</Link>
-          <Link href="/rotation">챔피언 로테이션</Link>
+        <header className="h-10 flex flex-row justify-evenly items-center bg-gray-200">
+          <Link
+            href="/"
+            className="text-black hover:text-blue-800 hover:underline"
+          >
+            홈
+          </Link>
+          <Link
+            href="/champions"
+            className="text-black hover:text-blue-800 hover:underline"
+          >
+            챔피언 목록
+          </Link>
+          <Link
+            href="/items"
+            className="text-black hover:text-blue-800 hover:underline"
+          >
+            아이템 목록
+          </Link>
+          <Link
+            href="/rotation"
+            className="text-black hover:text-blue-800 hover:underline"
+          >
+            챔피언 로테이션
+          </Link>
         </header>
         <main>{children}</main>
       </body>
