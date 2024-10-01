@@ -18,15 +18,15 @@ export const ChampionCard = ({
             return (
               <Link href={`/champions/${champion.id}`} key={champion.id}>
                 <div className="border border-black rounded-md p-4">
-                  <p>{champion.name}</p>
-                  <p>{champion.title}</p>
                   <Image
                     src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/champion/${champion.image.full}`}
                     alt={champion.name}
                     width={120}
                     height={120}
-                    className="mx-auto mt-2"
+                    className="mx-auto mb-3"
                   />
+                  <p>{champion.name}</p>
+                  <p>{champion.title}</p>
                 </div>
               </Link>
             );
