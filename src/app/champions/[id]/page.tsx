@@ -27,7 +27,7 @@ async function ChampionDetailPage({ params }: { params: { id: string } }) {
 
   return (
     <div className="w-full flex justify-center">
-      <div className="w-[80%] flex flex-col items-center gap-10 mt-8">
+      <div className="w-[80%] flex flex-col items-center gap-10 mt-8 mb-10 lg:mb-5">
         <div>
           <div className="text-[20px] font-bold text-red-500">
             {championDetail.name}
