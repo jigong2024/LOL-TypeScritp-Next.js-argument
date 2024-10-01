@@ -26,10 +26,15 @@ async function ChampionDetailPage({ params }: { params: { id: string } }) {
   const version: string = await getVersion();
 
   return (
-    <div>
-      <div>
-        <div>{championDetail.name}</div>
-        <div>{championDetail.title}</div>
+    <div className="w-full flex justify-center">
+      <div className="w-[80%] flex flex-col items-center gap-10 mt-8">
+        <div>
+          <div className="text-[20px] font-bold text-red-500">
+            {championDetail.name}
+          </div>
+          <div>{championDetail.title}</div>
+        </div>
+
         <Image
           src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/champion/${championDetail.image.full}`}
           alt={championDetail.name}
@@ -37,12 +42,13 @@ async function ChampionDetailPage({ params }: { params: { id: string } }) {
           height={300}
         />
         <div>{championDetail.blurb}</div>
-
-        <p>스탯</p>
-        <span>{`공격력: ${championDetail.info.attack}`}</span>
-        <span>{`방어력: ${championDetail.info.defense}`}</span>
-        <span>{`마법력: ${championDetail.info.magic}`}</span>
-        <span>{`난이도: ${championDetail.info.difficulty}`}</span>
+        <div className="flex flex-col">
+          <p className="mb-3 text-blue-500">스탯</p>
+          <span className="text-blue-500">{`공격력: ${championDetail.info.attack}`}</span>
+          <span className="text-blue-500">{`방어력: ${championDetail.info.defense}`}</span>
+          <span className="text-blue-500">{`마법력: ${championDetail.info.magic}`}</span>
+          <span className="text-blue-500">{`난이도: ${championDetail.info.difficulty}`}</span>
+        </div>
       </div>
     </div>
   );
