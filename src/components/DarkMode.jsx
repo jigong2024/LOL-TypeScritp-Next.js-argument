@@ -3,9 +3,16 @@
 import { useEffect, useState } from "react";
 
 const DarkMode = () => {
-  const [darkMode, setDarkMode] = useState(() => {
-    return localStorage.getItem("darkMode") === "true";
-  });
+  const [darkMode, setDarkMode] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    // 컴포넌트가 마운트된 후 localStorage 확인
+    const storedDarkMode = localStorage.getItem("darkMode") === "true";
+
+    setDarkMode(storedDarkMode);
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     if (darkMode) {
@@ -20,6 +27,10 @@ const DarkMode = () => {
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
   };
+
+  if (!mounted) {
+    return <div>로딩 중...</div>;
+  }
 
   return <button onClick={toggleDarkMode}>{darkMode ? "🌝" : "🌚"}</button>;
 };
