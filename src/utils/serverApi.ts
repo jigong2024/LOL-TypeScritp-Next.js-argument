@@ -1,7 +1,7 @@
 "use server";
 
-import { Champion, ChampionDetail } from "@/types/Champion";
-import { Item } from "@/types/Item";
+import { Champion, ChampionData, ChampionDetail } from "@/types/Champion";
+import { Item, ItemData } from "@/types/Item";
 
 // 최신 버전 가져오는 함수
 export const getVersion = async (): Promise<string> => {
@@ -37,8 +37,7 @@ export const getChampionList = async (): Promise<Champion[]> => {
       throw new Error("Failed to fetch champion list data");
     }
 
-    const { data }: { data: Record<string, any> } =
-      await championListResponse.json();
+    const { data }: { data: ChampionData } = await championListResponse.json();
 
     // 필요한 챔피언 데이터만 추출
     const championList: Champion[] = Object.values(data).map((champion) => ({
@@ -75,7 +74,7 @@ export const getChampionDetail = async (
       throw new Error("Failed to fetch champion detail data");
     }
 
-    const { data }: { data: Record<string, any> } =
+    const { data }: { data: ChampionData } =
       await championDetailResponse.json();
 
     // 특정 챔피언 데이터
@@ -124,8 +123,7 @@ export const getItemList = async (): Promise<Item[]> => {
       throw new Error("Failed to fetch item list");
     }
 
-    const { data }: { data: Record<string, any> } =
-      await itemListResponse.json();
+    const { data }: { data: ItemData } = await itemListResponse.json();
 
     const itemList: Item[] = Object.entries(data).map(([id, item]) => ({
       id: id,
