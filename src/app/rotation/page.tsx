@@ -1,24 +1,13 @@
-"use client";
+import { Metadata } from "next";
+import RotationPage from "./RotationPage";
 
-import ChampionCard from "@/components/ChampionCard";
-import { useChampionStore } from "@/store/rotationStore";
-import { useEffect } from "react";
+export const metadata: Metadata = {
+  title: "금주 로테이션",
+  description: "리그 오브 레전드 금주 로테이션 챔피언 목록 제공합니다.",
+};
 
-function RotationPage() {
-  const { freeChampions, version, error, fetchChampions } = useChampionStore();
-
-  useEffect(() => {
-    fetchChampions();
-  }, [fetchChampions]);
-
-  if (error) return <div>error: {error}</div>;
-  // 데이터가 모두 로드되었는지 확인
-  if (freeChampions.length === 0 || version === null) {
-    return <div>데이터 로딩 중...</div>;
-  }
-
-  // 데이터가 모두 준비되었을 때만 ChampionCard 컴포넌트 렌더링
-  return <ChampionCard champions={freeChampions} version={version} />;
+function Page() {
+  return <RotationPage />;
 }
 
-export default RotationPage;
+export default Page;
