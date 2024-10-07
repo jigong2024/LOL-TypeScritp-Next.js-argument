@@ -16,7 +16,12 @@ async function ChampionPage() {
   const champions: Champion[] = await getChampionList();
   const version: string = await getVersion();
 
-  return <ChampionCard champions={champions} version={version} />;
+  return (
+    <div>
+      <h1 className="text-2xl font-bold m-8">챔피언 목록</h1>
+      <ChampionCard champions={champions} version={version} />;
+    </div>
+  );
 }
 
 export default ChampionPage;

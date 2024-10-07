@@ -3,6 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     domains: ["ddragon.leagueoflegends.com"],
+    formats: ["image/webp"],
   },
 };
 

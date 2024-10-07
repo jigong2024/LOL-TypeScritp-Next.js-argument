@@ -13,7 +13,7 @@ export const ChampionCard = ({
 }) => {
   return (
     <div className="container mx-auto px-3">
-      <h1 className="text-2xl font-bold my-4">챔피언 목록</h1>
+      {/* <h1 className="text-2xl font-bold my-4">챔피언 목록</h1> */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {champions &&
           champions.map((champion) => {
@@ -21,7 +21,7 @@ export const ChampionCard = ({
               <Link href={`/champions/${champion.id}`} key={champion.id}>
                 <div className="border border-black rounded-md p-4 bg-gray-200">
                   <Image
-                    src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/champion/${champion.image.full}`}
+                    src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/champion/${champion.id}.png`}
                     alt={champion.name}
                     width={120}
                     height={120}

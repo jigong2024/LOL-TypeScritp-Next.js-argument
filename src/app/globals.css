@@ -19,7 +19,7 @@ body {
   background: var(--background);
   font-family: "Poor Story", Arial, Helvetica, sans-serif;
 
-  /* cursor: url("/img/duck.png"), auto; */
+  cursor: url("/img/duck.png"), auto;
 }
 
 @layer utilities {
