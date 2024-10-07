@@ -12,9 +12,6 @@ export const metadata: Metadata = {
 };
 
 async function ChampionPage() {
-  // 네트워크 에러 시뮬레이션
-  throw new Error("네트워크 오류: 챔피언 목록을 가져오는데 실패했습니다.");
-
   // 서버 액션 함수 호출해서 챔피언 목록, 최신 버전 가져오기
   const champions: Champion[] = await getChampionList();
   const version: string = await getVersion();

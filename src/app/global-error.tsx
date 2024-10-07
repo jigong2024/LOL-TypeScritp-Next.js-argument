@@ -4,7 +4,7 @@ import { ErrorComponentProps } from "@/types/Error";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
-export default function Error({ error }: ErrorComponentProps) {
+export default function GlobalError({ error }: ErrorComponentProps) {
   const router = useRouter();
 
   useEffect(() => {
