@@ -2,27 +2,16 @@
 
 import { ErrorComponentProps } from "@/types/Error";
 import { useRouter } from "next/navigation";
-import { useEffect, useState, useTransition } from "react";
+import { useEffect } from "react";
 
-export default function ErrorComponent({ error, reset }: ErrorComponentProps) {
+export default function ErrorComponent({ error }: ErrorComponentProps) {
   const router = useRouter();
-  const [isResetting, setIsResetting] = useState(false);
-  const [isPending, startTransition] = useTransition();
 
   useEffect(() => {
     console.log(error);
   }, [error]);
 
-  const handleReset = () => {
-    setIsResetting(true);
-
-    startTransition(() => {
-      reset();
-    });
-  };
-
   const handleRefresh = () => {
-    // router.refresh();
     window.location.reload();
   };
 
@@ -35,16 +24,10 @@ export default function ErrorComponent({ error, reset }: ErrorComponentProps) {
       <h2 className="font-bold text-[30px] text-red-500">
         문제가 발생했습니다.
       </h2>
-      <p className="bg-gray-200 max-w-md w-full break-words text-center">
+      <p className="bg-gray-200 max-w-md w-full break-words text-center dark:text-black">
         {error.message}
       </p>
       <div className="flex flex-wrap gap-5">
-        <button
-          onClick={handleReset}
-          className="border-2 border-blue-300 bg-blue-300 rounded-md text-white px-1"
-        >
-          재시도
-        </button>
         <button
           onClick={handleRefresh}
           className="border-2 border-blue-300 bg-blue-300 rounded-md text-white px-1"
