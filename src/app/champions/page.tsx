@@ -17,8 +17,8 @@ async function ChampionPage() {
   const version: string = await getVersion();
 
   return (
-    <div>
-      <h1 className="text-2xl font-bold m-8">챔피언 목록</h1>
+    <div className="container mx-auto px-3">
+      <h1 className="text-2xl font-bold my-8">챔피언 목록</h1>
       <ChampionCard champions={champions} version={version} />;
     </div>
   );
