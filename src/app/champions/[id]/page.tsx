@@ -23,8 +23,11 @@ export async function generateMetadata({
 
 async function ChampionDetailPage({ params }: { params: { id: string } }) {
   const championId = params.id;
-  const championDetail: ChampionDetail = await getChampionDetail(championId);
-  const version: string = await getVersion();
+
+  const [championDetail, version] = await Promise.all([
+    getChampionDetail(championId),
+    getVersion(),
+  ]);
 
   return (
     <div className="w-full flex justify-center">

@@ -9,8 +9,7 @@ export const metadata: Metadata = {
 
 async function ItemPage() {
   // 서버 액션 함수 호출해서 아이템 목록, 최신 버전 가져오기
-  const items = await getItemList();
-  const version = await getVersion();
+  const [items, version] = await Promise.all([getItemList(), getVersion()]);
 
   return (
     <div className="container mx-auto px-3">
