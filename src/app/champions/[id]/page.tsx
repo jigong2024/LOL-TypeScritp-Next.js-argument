@@ -1,5 +1,4 @@
 import BackButton from "@/components/BackButton";
-import { ChampionDetail } from "@/types/Champion";
 import { getChampionDetail, getVersion } from "@/utils/serverApi";
 import { Metadata } from "next";
 import Image from "next/image";
